@@ -15,8 +15,11 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   }
 
   return (
-    <div>
-      <button onClick={onDismiss}>Dismiss menu</button>
+    <Wrapper>
+      <UnstyledButton onClick={onDismiss}>
+        <VisuallyHidden>Dismiss menu</VisuallyHidden>
+        X
+      </UnstyledButton>
       <nav>
         <a href="/sale">Sale</a>
         <a href="/new">New&nbsp;Releases</a>
@@ -30,8 +33,14 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <a href="/privacy">Privacy Policy</a>
         <a href="/contact">Contact Us</a>
       </footer>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
 
 export default MobileMenu;
